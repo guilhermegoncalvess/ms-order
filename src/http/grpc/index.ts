@@ -26,7 +26,7 @@ const Product = grpc.loadPackageDefinition(productLoader).ProductService
 
 export default {
   // @ts-ignore
-  user: new User('localhost:50051', grpc.credentials.createInsecure()),
+  user: new User('ms-user.svc.cluster.local:50051', grpc.credentials.createInsecure()),
   // @ts-ignore
-  product: new Product('localhost:50052', grpc.credentials.createInsecure()),
+  product: new Product('ms-catalog.svc.cluster.local:50051', grpc.credentials.createInsecure()),
 };
