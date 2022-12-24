@@ -1,0 +1,5 @@
+apiVersion: 1
+kind: Pod
+metadata:
+  name: ms-user
+  labels:

@@ -1,0 +1,23 @@
+
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+
+service ProductService {
+  // Sends a greeting
+  rpc GetProduct (ProductRequest) returns (Product) {}
+}
+
+// The request message containing the user's name.
+message ProductRequest {
+  string id = 1;
+}
+
+// The response message containing the greetings
+message Product {
+  string _id = 1;
+  string name = 2;
+  string description = 3;
+  int32 value = 4;
+}
