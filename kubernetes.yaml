@@ -23,3 +23,28 @@ spec:
           resources: {}
           imagePullPolicy: Always
 status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    cloud.google.com/neg: '{"ingress":true}'
+  labels:
+    app: ms-order
+  name: ms-order
+  namespace: default
+spec:
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - port: 50051
+    protocol: TCP
+    targetPort: 50051
+  - port: 3333
+    protocol: TCP
+    targetPort: 3333
+  selector:
+    app: ms-order
+  type: ClusterIP
