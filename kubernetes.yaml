@@ -39,9 +39,6 @@ spec:
   - IPv4
   ipFamilyPolicy: SingleStack
   ports:
-  - port: 50051
-    protocol: TCP
-    targetPort: 50051
   - port: 3333
     protocol: TCP
     targetPort: 3333
