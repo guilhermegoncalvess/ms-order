@@ -22,6 +22,9 @@ spec:
           name: ms-order
           resources: {}
           imagePullPolicy: Always
+          ports:
+          - containerPort: 3333
+            protocol: TCP
 status: {}
 ---
 apiVersion: v1
@@ -33,6 +36,6 @@ spec:
   selector:
     app: ms-order
   ports:
-  - protocol: TCP
-    port: 80
+  - port: 3333
+    protocol: TCP
     targetPort: 3333
