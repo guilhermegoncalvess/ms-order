@@ -4,7 +4,7 @@ import OrderController from '../../controllers/OrderController';
 
 const orderRouter = Router();
 
-orderRouter.post('/order', async (request, response) => {
+orderRouter.post('/', async (request, response) => {
   const orderController = new OrderController();
 
   const payload = await orderController.insert({
@@ -16,13 +16,13 @@ orderRouter.post('/order', async (request, response) => {
   return response.json(payload);
 });
 
-orderRouter.delete('/order/:id', async (request, response) => {
+orderRouter.delete('/:id', async (request, response) => {
   // const orderController = new OrderController();
   // const order = await orderController.remove(request);
   // return response.json(order);
 });
 
-orderRouter.get('/order/', async (request, response) => {
+orderRouter.get('/', async (request, response) => {
   const orderController = new OrderController();
 
   const order = await orderController.findAll();
