@@ -30,12 +30,21 @@ status: {}
 apiVersion: v1
 kind: Service
 metadata:
+  annotations:
+    cloud.google.com/neg: '{"ingress":true}'
+  labels:
+    app: ms-order
   name: ms-order
+  namespace: default
 spec:
-  type: NodePort
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+    - port: 3333
+      protocol: TCP
+      targetPort: 3333
   selector:
     app: ms-order
-  ports:
-  - port: 3333
-    protocol: TCP
-    targetPort: 3333
+  type: ClusterIP

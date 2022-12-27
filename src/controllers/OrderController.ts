@@ -34,9 +34,7 @@ export default class OrderController {
     const topicNameOrId = 'projects/learning-357114/topics/order';
     const data = JSON.stringify(orderResult);
 
-    const pubSubClient = new PubSub({
-      keyFile: path.join(__dirname, 'pubsub.json'),
-    });
+    const pubSubClient = new PubSub();
     const dataBuffer = Buffer.from(data);
 
     try {
@@ -53,32 +51,6 @@ export default class OrderController {
   }
 
   async findAll(): Promise<any> {
-    // const topicNameOrId = 'projects/learning-357114/topics/pedidos';
-    // const data = JSON.stringify(order);
-    console.log(path.join(__dirname, 'pubsub.json'));
-    const pubSubClient = new PubSub({
-      keyFile: path.join(__dirname, 'pubsub.json'),
-    });
-    // const dataBuffer = Buffer.from(data);
-
-    const subscription = pubSubClient.subscription(
-      'projects/learning-357114/subscriptions/order-sub',
-    );
-
-    // Create an event handler to handle messages
-    let messageCount = 0;
-    const messageHandler = (message: any) => {
-      console.log(`Received message ${message.id}:`);
-      console.log(`\tData: ${message.data}`);
-      console.log(`\tAttributes: ${message.attributes}`);
-      messageCount += 1;
-
-      // "Ack" (acknowledge receipt of) the message
-      message.ack();
-    };
-
-    // Listen for new messages until timeout is hit
-    subscription.on('message', messageHandler);
     return {};
   }
 
