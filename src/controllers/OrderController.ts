@@ -1,14 +1,13 @@
 import { PubSub } from '@google-cloud/pubsub';
-import path from 'path';
 import OrderRepository from '../repositories/OrderRepository';
-import rcp from '../http/grpc';
+import rpc from '../http/grpc';
 
 export default class OrderController {
   async insert(payload: any): Promise<any> {
     const { userId, products, totalPrice } = payload;
 
     const user = await new Promise((resolve: any, reject: any) => {
-      rcp.user.GetUser({ id: userId }, (err: any, res: any) => {
+      rpc.user.GetUser({ id: userId }, (err: any, res: any) => {
         if (err) return reject(err);
         return resolve(res);
       });
@@ -17,7 +16,7 @@ export default class OrderController {
     const newProducts = await Promise.all(
       products.map(async (item: any) => {
         const product: any = await new Promise((resolve: any, reject: any) => {
-          rcp.product.GetProduct({ id: item.id }, (err: any, res: any) => {
+          rpc.product.GetProduct({ id: item.id }, (err: any, res: any) => {
             if (err) return reject(err);
             return resolve(res);
           });
@@ -57,7 +56,7 @@ export default class OrderController {
   async findById(payload: any): Promise<any> {
     const { id } = payload.params;
     return new Promise((resolve: any, reject: any) => {
-      rcp.user.GetUser({ id }, (err: any, res: any) => {
+      rpc.user.GetUser({ id }, (err: any, res: any) => {
         if (err) return reject(err);
         return resolve(res);
       });
