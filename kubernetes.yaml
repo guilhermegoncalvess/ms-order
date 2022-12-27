@@ -18,6 +18,7 @@ spec:
         app: ms-order
     spec:
       serviceAccountName: ms-order-pubsub
+      automountServiceAccountToken: false
       containers:
         - image: gcr.io/learning-357114/ms-order:1.0.0
           name: ms-order
@@ -27,12 +28,6 @@ spec:
             - containerPort: 3333
               protocol: TCP
 status: {}
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: ms-order-pubsub
-automountServiceAccountToken: false
 ---
 apiVersion: v1
 kind: Service
