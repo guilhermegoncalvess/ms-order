@@ -1,3 +1,4 @@
+# prettier-ignore
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -18,9 +19,9 @@ spec:
         app: ms-order
     spec:
       volumes:
-			- name: google-cloud-key
-				secret:
-					secretName: pubsub-key
+      - name: google-cloud-key
+        secret:
+          secretName: pubsub-key
       containers:
         - image: gcr.io/learning-357114/ms-order:1.0.0
           name: ms-order
@@ -30,11 +31,11 @@ spec:
             - containerPort: 3333
               protocol: TCP
           volumeMounts:
-					- name: google-cloud-key
-						mountPath: /var/secrets/google
-						env:
-							- name: GOOGLE_APPLICATION_CREDENTIALS
-								value: /var/secrets/google/key.json
+          - name: google-cloud-key
+            mountPath: /var/secrets/google
+            env:
+              - name: GOOGLE_APPLICATION_CREDENTIALS
+                value: /var/secrets/google/key.json
 status: {}
 ---
 apiVersion: v1
