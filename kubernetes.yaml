@@ -34,8 +34,8 @@ spec:
           - name: google-cloud-key
             mountPath: /var/secrets/google
         env:
-          - name: GOOGLE_APPLICATION_CREDENTIALS
-            value: /var/secrets/google/ms-order-pubsub-credentials.json
+        - name: GOOGLE_APPLICATION_CREDENTIALS
+          value: /var/secrets/google/ms-order-pubsub-credentials.json
 status: {}
 ---
 apiVersion: v1
