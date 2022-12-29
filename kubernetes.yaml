@@ -21,7 +21,7 @@ spec:
       volumes:
       - name: google-cloud-key
         secret:
-          secretName: pubsub-key
+          secretName: ms-order-pubsub-key
       containers:
         - image: gcr.io/learning-357114/ms-order:1.0.0
           name: ms-order
@@ -35,7 +35,7 @@ spec:
             mountPath: /var/secrets/google
         env:
           - name: GOOGLE_APPLICATION_CREDENTIALS
-            value: /var/secrets/google/key.json
+            value: /var/secrets/google/ms-order-pubsub-credentials.json
 status: {}
 ---
 apiVersion: v1
