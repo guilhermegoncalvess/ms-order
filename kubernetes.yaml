@@ -25,7 +25,6 @@ spec:
       containers:
         - image: gcr.io/learning-357114/ms-order:2.0.0
           name: ms-order
-          resources: {}
           imagePullPolicy: Always
           ports:
             - containerPort: 3333
@@ -36,6 +35,12 @@ spec:
           env:
           - name: GOOGLE_APPLICATION_CREDENTIALS
             value: /var/secrets/google/ms-order-pubsub-credentials.json
+            resources:
+            requests:
+              cpu: "50m"
+              memory: "128Mi"
+            limits:
+              memory: '400Mi'
 status: {}
 ---
 apiVersion: v1
