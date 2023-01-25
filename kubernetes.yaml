@@ -23,7 +23,7 @@ spec:
         secret:
           secretName: ms-order-pubsub-key
       containers:
-        - image: gcr.io/learning-357114/ms-order:2.0.0
+        - image: gcr.io/learning-357114/ms-order:3.0.0
           name: ms-order
           imagePullPolicy: Always
           ports:

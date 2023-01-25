@@ -24,18 +24,15 @@ class OrderRepository implements OrderInterface {
   }
 
   public async findAll(): Promise<Produtc[]> {
-    return this.collection.find<Produtc>({}).toArray();
+    return this.collection.find({}).toArray();
   }
 
-  public async findById(id: string): Promise<Produtc> {
-    const orderId = new ObjectId(id);
-    const order = await this.collection.findOne<Produtc>({
-      _id: orderId,
+  public async findByUserId(id: string): Promise<Produtc[]> {
+    const orders = await this.collection.find<Produtc>({
+      'user.id': id,
     });
 
-    if (!order) throw new AppError('could not find the order.', 404);
-
-    return order;
+    return orders.toArray();
   }
 
   public async remove(id: string): Promise<any> {
