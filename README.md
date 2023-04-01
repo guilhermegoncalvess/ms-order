@@ -90,5 +90,15 @@ With all the provisioning and deployment steps completed, it is possible to use 
   <br>
 </div>
 
-Technologies
+### Conclusion and future work
+
+With the prototype of the e-commerce system developed and deployed in the cloud, it is clear that it is possible to maintain the standard of software development with adaptations for microservices architecture. Dividing the system into small parts provides a more cohesive and loosely coupled system, allowing each microservice to be independent and cloud-native from its inception, and can be added or removed from the software architecture and solution.
+However, for the development of the microservices architecture, it is necessary to understand everything from the requirements gathering, construction of the Databases, development of each microservice, the definition of the cloud provider, cloud services, and deployment of cloud resources.
+For a developer without a team, in the context of this work, using microservices is hard work to deal with all stages of development, as there are several areas and tools acting in small parts to solve the problem. In the context of companies, teams are normally created for the development of the system, where each member is responsible for carrying out the tasks of each area involved.
+Despite the challenges, the presented prototype meets several characteristics of a system using the microservices architecture, such as the decomposition of a monolith, the separation of the database by microservices, continuous delivery, containerized services, and the deployment of microservices in a cluster with the orchestration of containers. Such characteristics make up the set of requirements needed to create and develop cloud-native software systems.
+The microservices architecture enables a high level of cohesion, low coupling, and high availability, as the microservices are deployed independently, offering the following benefits: A microservice has responsibilities with a closed scope; Corrective or adaptive maintenance is performed on each microservice, enabling error reduction and increased code traceability; Scalability when there is an overload of demand on a microservice.
+For future work, it is suggested to improve the created prototype, adding new business responsibilities that result in new microservices. Optimizing cloud resources is necessary as new microservices are created. In addition, it is advised to search for monitoring and observability of microservices and cloud services. Finally, consider also creating a front-end application that uses the available microservices in order to complete the system as a whole.
+
+#### Technologies Used
+
 NodeJS, Express, Python, gRPC, SMTP, Docker, Kubernetes, Github Actions, C4 Model, Google Cloud Platform (GCP), Google Cloud SQL, Google Kubernetes Engine(GKE), Google Cloud Client Libraries, Google Cloud PubSub, MongoDB Atlas.
